@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Paint Program</title>
+    <style>
+       *{
+        padding:0px;
+        margin: 0px;
+       }
+        .wr{
+            height: 100%;
+            width: 100%;
+            background-color:rgba(238, 236, 236, 0.938);
+        }
+        .pallate{
+            top:5%;
+            height: 90%;
+            width: 5%;
+            position: absolute;
+            background-color: #fff;
+        }
+
+    span{
+        height: 50px;
+        width: 50px;
+        position: relative;
+        display: block;
+        margin:10px 10px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 2px 2px black;
+        }
+        
+        svg{
+            width:70%;
+           position: absolute;
+           right:10%;
+           top:5%;
+            height: 90%;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>   
+        <div class="pallate">
+            <span style="background-color: red;"></span>
+            <span style="background-color: green;"></span>
+            <span style="background-color: yellow;"></span>
+            <span style="background-color: orange;"></span>
+            <span style="background-color: greenyellow;"></span>
+            <span></span>
+
+        </div>
+        <div class="wr">         
+            <div class="canvas">
+                <svg>
+                    <circle cx="500" cy="10" r="10" fill="black" />
+                    <circle cx="400" cy="100" r="10" fill="black" />  
+                    <circle cx="600" cy="100" r="10" fill="black" /> 
+                    <circle cx="450" cy="100" r="10" fill="black" />  
+                    <circle cx="550" cy="100" r="10" fill="black" />
+
+                    <circle cx="300" cy="200" r="10" fill="black" />  
+                    <circle cx="700" cy="200" r="10" fill="black" /> 
+                    <circle cx="350" cy="200" r="10" fill="black" />  
+                    <circle cx="650" cy="200" r="10" fill="black" /> 
+
+                    <circle cx="200" cy="350" r="10" fill="black" />  
+                    <circle cx="800" cy="350" r="10" fill="black" /> 
+                    <circle cx="450" cy="350" r="10" fill="black" />  
+                    <circle cx="550" cy="350" r="10" fill="black" />    
+
+                    <circle cx="450" cy="500" r="10" fill="black" />  
+                    <circle cx="550" cy="500" r="10" fill="black" />          
+                                
+                                   
+
+                    <polyline points="" style="fill:none; stroke:red;stroke-width:2" id="pol" />
+                </svg>
+            </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var points="";
+    var x;
+    var y;
+    document.querySelectorAll("circle")?.forEach(el => {
+    el.addEventListener("click", function (ev) {
+        const circle = ev.target;
+        x= circle.attributes[0].value;
+        y=circle.attributes[1].value;
+        console.log(x,y);
+        points+=x+","+y+" ";
+        console.log(points);
+        // alert("some description (using JS)");
+        let m=document.getElementById("pol").attributes;
+        m[0].nodeValue=points;
+        console.log(m[0].nodeValue);
+        if(points.length==126)
+        {
+            document.getElementById("pol").style.fill="green";   
+        }
+    })    
+    })
+   
+
+
+
+
+
+</script>
