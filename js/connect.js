@@ -8,7 +8,6 @@ el.addEventListener("click", function (ev) {
     y=circle.attributes[1].value;
     console.log(x,y);
     points+=x+","+y+" ";
-    console.log(points);
     // alert("some description (using JS)");
     let m=document.getElementById("pol").attributes;
     m[0].nodeValue=points;
